@@ -12,6 +12,9 @@ end
 class Barber < ActiveRecord::Base
 end
 
+class Contact < ActiveRecord::Base
+end
+
 before do
 	# Вывод барберов на экран с помощью ActiveRecord
 	@barbers = Barber.all
@@ -38,4 +41,8 @@ post '/visit' do
 
 	erb "<h2>Спасибо вы записались на #{@datetime}</h2>"
 
+end
+
+get '/contacts' do
+	erb :contacts
 end
