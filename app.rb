@@ -39,10 +39,16 @@ post '/visit' do
 	# сохранение клиентов в БД на странице visit с помощью ActiveRecord
 	clients = Client.create(name: @username, phone: @phone, datestamp: @datetime, barber: @barber, color: @color)
 
-	erb "<h2>Спасибо вы записались на #{@datetime}</h2>"
+	erb :visit
 
 end
 
 get '/contacts' do
 	erb :contacts
+end
+
+post '/contacts' do
+	@contact_email = params['contact_email']
+	@message = params['message']
+	erb "#{@contact_email} and #{@message}"
 end

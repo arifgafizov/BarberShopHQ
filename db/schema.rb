@@ -28,11 +28,3 @@ ActiveRecord::Schema.define(version: 2019_10_31_115005) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contacts", force: :cascade do |c|
-    c.text "email"
-    c.text "message"
-    c.datetime "created_at", precision: 6, null: false
-    c.datetime "updated_at", precision: 6, null: false
-  end
-
-end
