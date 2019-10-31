@@ -50,5 +50,9 @@ end
 post '/contacts' do
 	@contact_email = params['contact_email']
 	@message = params['message']
-	erb "#{@contact_email} and #{@message}"
+
+	# сохранение контактов в БД на странице contacts с помощью ActiveRecord
+	contacts = Contact.create(contact_email: @contact_email, message: @message)
+
+	erb :contacts
 end
