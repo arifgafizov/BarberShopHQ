@@ -52,7 +52,10 @@ post '/contacts' do
 	@message = params['message']
 
 	# сохранение контактов в БД на странице contacts с помощью ActiveRecord
-	contacts = Contact.create(contact_email: @contact_email, message: @message)
+	c = Contact.new
+	c.contact_email = @contact_email
+	c.message = @message
+	c.save
 
 	erb :contacts
 end
