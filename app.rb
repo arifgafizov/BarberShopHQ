@@ -13,6 +13,7 @@ class Barber < ActiveRecord::Base
 end
 
 before do
+	# Вывод барберов на экран с помощью ActiveRecord
 	@barbers = Barber.all
 end
 
@@ -32,6 +33,7 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+	# сохранение клиентов в БД на странице visit с помощью ActiveRecord
 	clients = Client.create(name: @username, phone: @phone, datestamp: @datetime, barber: @barber, color: @color)
 
 	erb "<h2>Спасибо вы записались на #{@datetime}</h2>"
